@@ -14,10 +14,10 @@ export default function Navbar() {
   ];
 
   return (
-    <header className="top-0 left-0 w-full bg-transparent z-50 border-b">
+    <header className="sticky top-0 left-0 w-full bg-transparent z-50">
       <div className="max-w-8xl mx-auto px-4 py-3 flex items-center justify-between">
         <Link href="/">
-          <h1 className="font-bold text-3xl border-1 rounded-full px-5 py-3 bg-[#F0A04B]">
+          <h1 className="font-bold text-3xl border rounded-full px-5 py-3 bg-[#F0A04B]">
             HEN
           </h1>
         </Link>
@@ -26,7 +26,7 @@ export default function Navbar() {
         <nav className="hidden md:flex gap-5 text-xl">
           {navItems.map((item) => (
               <a
-              className={`border-1 px-5 py-3 rounded-full bg-background transition-colors duration-300 cursor-pointer ${item.hoverColor}`}
+              className={`border px-5 py-3 rounded-full bg-background transition-colors duration-300 cursor-pointer ${item.hoverColor}`}
               key={item.label}
               href={item.href}
             >
