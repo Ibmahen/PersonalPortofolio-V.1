@@ -1,17 +1,30 @@
-import { Code, Terminal, Save, Coffee } from "lucide-react";
+import { Code, Terminal, Save } from "lucide-react";
 import Image from "next/image";
 
 export default function Home() {
   const skills = [
     "Node.js",
-    "React",
-    "Python",
     "JavaScript",
-    "HTML",
     "TypeScript",
-    "Google Cloud",
-    "Docker",
+    "Python",
+    "Java",
+    "PHP",
+    "HTML",
+    "CSS",
+    "Express.js",
+    "React",
+    "Next.js",
+    "Tailwind CSS",
+    "MySQL",
+    "PostgreSQL",
+    "Prisma",
   ];
+
+  const tools = [
+    "Postman",
+    "Git",
+    "Figma",
+  ]
 
   return (
     <div className="mx-auto max-w-7xl px-5 py-4 md:py-8">
@@ -66,7 +79,7 @@ export default function Home() {
           <div className="relative flex justify-center items-center min-h-[400px]">
             {/* Blue Background Card (Rotated) */}
             <div className="absolute w-72 h-80 md:w-80 md:h-96 bg-[#87CEEB] border-4 border-black rotate-3 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] z-0"></div>
-
+              
             {/* Avatar Image Container */}
             <div className="relative w-64 h-72 md:w-72 md:h-80 bg-gray-100 border-4 border-black -rotate-2 z-10 overflow-hidden">
               {/* GANTI SRC INI DENGAN FOTO ANDA */}
@@ -106,9 +119,21 @@ export default function Home() {
             {skills.map((skill) => (
               <div
                 key={skill}
-                className="px-6 py-2 bg-white border-2 border-black font-bold shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 transition-transform cursor-default"
+                className="px-6 py-2 bg-white border-3 border-black font-bold hover:bg-[#FFD700] transition-all duration-300 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:trasnlate-x-1 hover:translate-y-1 ease-in-out active:shadow-none active:translate-x-1 active:translate-y-1 cursor-default"
               >
                 {skill}
+              </div>
+            ))}
+          </div>
+
+          {/* Bottom Section:  Tools */}
+          <div className="flex flex-warp justify-center gap-4 mt-4">
+            {tools.map((tools) => (
+              <div
+                key={tools}
+                className="px-6 py-2 bg-white border-3 border-black font-bold hover:bg-[#FFD700] transition-all duration-300 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:trasnlate-x-1 hover:translate-y-1 ease-in-out active:shadow-none active:translate-x-1 active:translate-y-1 cursor-default"
+                >
+                {tools}
               </div>
             ))}
           </div>

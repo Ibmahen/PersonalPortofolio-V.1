@@ -1,7 +1,7 @@
 "use client";
 
 import ExpandableSection from "../ExpandSection";
-import { ExternalLink, Github, FolderOpen, ArrowUpRight } from "lucide-react";
+import WorkCard from "../WorkCard";
 
 export default function Work() {
   const projects = [
@@ -10,109 +10,40 @@ export default function Work() {
       desc: "Platform manajemen produk dan analitik penjualan real-time dengan performa tinggi.",
       tags: ["Next.js", "Tailwind", "Prisma"],
       links: { demo: "#", repo: "#" },
-      color: "bg-[#40E0D0]" // Cyan accent
+      color: "bg-[#40E0D0]", // Cyan accent
     },
     {
       title: "Social Media App",
       desc: "Aplikasi sosial media real-time dengan fitur chat, notifikasi, dan berbagi media.",
       tags: ["React", "Socket.io", "Node.js"],
       links: { demo: "#", repo: "#" },
-      color: "bg-[#FF90E8]" // Pink accent
+      color: "bg-[#FF90E8]", // Pink accent
     },
   ];
 
   return (
-    <ExpandableSection
-      title="Work"
-      subtitle="Selected Projects"
-      bgColor="#ECEE81" // Warna Kuning Section
-    >
-      {/* Background Pattern Halus: gunakan style daripada className arbitrary yang rumit */}
+    <ExpandableSection title="Work" subtitle="My Projects" bgColor="#ECEE81">
+      {/* Background Pattern Halus */}
       <div
-        className="w-full"
+        className="w-full p-5 md:p-10"
         style={{
           backgroundImage:
-            "linear-gradient(to right, rgba(0,0,0,0.06) 1px, transparent 1px), linear-gradient(to bottom, rgba(0,0,0,0.06) 1px, transparent 1px)",
+            "linear-gradient(to right, rgba(0,0,0,0.10) 1px, transparent 1px), linear-gradient(to bottom, rgba(0,0,0,0.10) 1px, transparent 1px)",
           backgroundSize: "24px 24px",
         }}
       >
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
           {/* Project Cards Loop */}
           {projects.map((project, index) => (
-            <div
+            <WorkCard
               key={index}
-              className="group relative bg-white border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 transition-all duration-300 flex flex-col"
-            >
-              {/* Card Header / Retro Browser Bar */}
-              <div className="border-b-4 border-black bg-gray-100 p-3 flex items-center gap-2">
-                <div className="w-3 h-3 rounded-full border-2 border-black bg-red-400" />
-                <div className="w-3 h-3 rounded-full border-2 border-black bg-yellow-400" />
-                <div className="w-3 h-3 rounded-full border-2 border-black bg-green-400" />
-                <div className="ml-auto font-mono text-xs border border-black px-2 bg-white shadow-[2px_2px_0px_0px_rgba(0,0,0,0.2)]">
-                  project_0{index + 1}.exe
-                </div>
-              </div>
-
-              {/* Image Placeholder Area */}
-              <div
-                className={`h-48 w-full border-b-4 border-black ${project.color} flex items-center justify-center relative overflow-hidden group-hover:opacity-90 transition-opacity`}
-              >
-                {/* Ganti dengan <Image /> nanti */}
-                <FolderOpen size={64} className="text-black opacity-20" />
-                <span className="absolute font-black text-4xl opacity-10 -rotate-12 uppercase tracking-widest select-none">
-                  Preview
-                </span>
-
-                {/* Overlay Button on Hover */}
-                <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/10 backdrop-blur-[2px]">
-                  <span className="bg-white border-2 border-black px-4 py-2 font-bold shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex items-center gap-2">
-                    View Details <ArrowUpRight size={18} />
-                  </span>
-                </div>
-              </div>
-
-              {/* Content Body */}
-              <div className="p-6 flex flex-col grow">
-                <h3 className="text-2xl font-black uppercase mb-3 leading-none">
-                  {project.title}
-                </h3>
-                <p className="text-gray-700 font-medium mb-6 grow leading-relaxed">
-                  {project.desc}
-                </p>
-
-                {/* Tech Stack Tags */}
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {project.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="px-2 py-1 text-xs font-bold border-2 border-black bg-white shadow-[2px_2px_0px_0px_rgba(0,0,0,1)]"
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-
-                {/* Action Buttons */}
-                <div className="flex gap-4 mt-auto">
-                  <a
-                    href={project.links.repo}
-                    className="flex-1 flex items-center justify-center gap-2 bg-white border-2 border-black p-3 font-bold hover:bg-black hover:text-white transition-colors shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <Github size={18} /> Code
-                  </a>
-                  <a
-                    href={project.links.demo}
-                    className="flex-1 flex items-center justify-center gap-2 bg-[#ECEE81] border-2 border-black p-3 font-bold hover:brightness-95 transition-colors shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    <ExternalLink size={18} /> Live Demo
-                  </a>
-                </div>
-              </div>
-            </div>
+              index={index}
+              title={project.title}
+              desc={project.desc}
+              tags={project.tags}
+              links={project.links}
+              color={project.color}
+            />
           ))}
         </div>
 
@@ -122,7 +53,7 @@ export default function Work() {
             href="https://github.com/yourusername"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block bg-black text-white px-8 py-4 font-bold text-xl border-4 border-transparent hover:bg-white hover:text-black hover:border-black transition-all shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
+            className="inline-block bg-white text-black px-8 py-4 font-bold text-xl border-4 border-black hover:bg-black hover:text-white transition-all shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
           >
             View More Projects
           </a>
@@ -131,31 +62,3 @@ export default function Work() {
     </ExpandableSection>
   );
 }
-   
-
-// "use client";
-
-// import ExpandableSection from "../ExpandSection";
-
-// export default function Work() {
-//   return (
-//     <ExpandableSection
-//       title="Work"
-//       subtitle="My Projects"
-//       bgColor="#ECEE81"
-//     >
-//       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 text-lg">
-//         <div className="space-y-4">
-//           <p>
-//             Halo! Saya Hen, seorang developer yang antusias membangun web
-//             interaktif.
-//           </p>
-//           <p>Fokus saya adalah menciptakan pengalaman pengguna yang unik.</p>
-//         </div>
-//         <div className="bg-white/20 rounded-lg h-64 flex items-center justify-center border border-black">
-//           [Foto / Gambar]
-//         </div>
-//       </div>
-//     </ExpandableSection>
-//   );
-// }
