@@ -6,11 +6,15 @@ import WorkCard from "../WorkCard";
 export default function Work() {
   const projects = [
     {
-      title: "E-Commerce Dashboard",
-      desc: "Platform manajemen produk dan analitik penjualan real-time dengan performa tinggi.",
-      tags: ["Next.js", "Tailwind", "Prisma"],
-      links: { demo: "#", repo: "#" },
+      title: "Disney+ Clone",
+      desc: "Membuat tampilan disney+.",
+      tags: ["React", "Tailwind"],
+      links: {
+        demo: "https://disney-clonee.vercel.app/",
+        repo: "https://github.com/Ibmahen/disney-clone",
+      },
       color: "bg-[#40E0D0]", // Cyan accent
+      imageSrc: "/projects/disney-clone.png",
     },
     {
       title: "Social Media App",
@@ -18,6 +22,7 @@ export default function Work() {
       tags: ["React", "Socket.io", "Node.js"],
       links: { demo: "#", repo: "#" },
       color: "bg-[#FF90E8]", // Pink accent
+      imageSrc: "",
     },
   ];
 
@@ -43,6 +48,7 @@ export default function Work() {
               tags={project.tags}
               links={project.links}
               color={project.color}
+              imageSrc={project.imageSrc}
             />
           ))}
         </div>
@@ -50,10 +56,10 @@ export default function Work() {
         {/* "View More" Call to Action */}
         <div className="mt-12 text-center">
           <a
-            href="https://github.com/yourusername"
+            href="https://github.com/Ibmahen?tab=repositories"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-block bg-white text-black px-8 py-4 font-bold text-xl border-4 border-black hover:bg-black hover:text-white transition-all shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]"
+            className="inline-block bg-white text-black px-8 py-4 font-bold text-xl border-4 border-black hover:bg-black hover:text-white transition-all shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 active:shadow-none active:translate-x-1 active:translate-y-1 duration-300 ease-in-out"
           >
             View More Projects
           </a>

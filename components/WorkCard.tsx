@@ -1,4 +1,4 @@
-import { ExternalLink, Github, FolderOpen, ArrowUpRight } from "lucide-react";
+import { ExternalLink, Github, FolderOpen } from "lucide-react";
 import Image from "next/image";
 
 interface WorkCardProps {
@@ -24,7 +24,7 @@ export default function WorkCard({
   imageSrc,
 }: WorkCardProps) {
   return (
-    <div className="group relative bg-white border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 transition-all duration-300 flex flex-col">
+    <div className="group relative bg-white border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] hover:shadow-[12px_12px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 transition-all duration-300 flex flex-col ease-in-out">
       {/* Card Header / Retro Browser Bar */}
       <div className="border-b-4 border-black bg-gray-100 p-3 flex items-center gap-2">
         <div className="w-3 h-3 rounded-full border-2 border-black bg-red-400" />
@@ -40,7 +40,13 @@ export default function WorkCard({
         className={`h-48 w-full border-b-4 border-black ${color} flex items-center justify-center relative overflow-hidden group-hover:opacity-90 transition-opacity`}
       >
         {imageSrc ? (
-          <Image src={imageSrc} alt={title} fill className="object-cover" />
+          <Image
+            src={imageSrc}
+            alt={title}
+            fill
+            className="object-cover"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          />
         ) : (
           <>
             <FolderOpen size={64} className="text-black opacity-20" />
@@ -49,13 +55,6 @@ export default function WorkCard({
             </span>
           </>
         )}
-
-        {/* Overlay Button on Hover */}
-        <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity bg-black/10 backdrop-blur-[2px]">
-          <span className="bg-white border-2 border-black px-4 py-2 font-bold shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] flex items-center gap-2">
-            View Details <ArrowUpRight size={18} />
-          </span>
-        </div>
       </div>
 
       {/* Content Body */}
@@ -83,7 +82,7 @@ export default function WorkCard({
         <div className="flex gap-4 mt-auto">
           <a
             href={links.repo}
-            className="flex-1 flex items-center justify-center gap-2 bg-white border-2 border-black p-3 font-bold hover:bg-black hover:text-white transition-colors shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-x-0.5 active:translate-y-0.5 active:shadow-none"
+            className="flex-1 flex items-center justify-center gap-2 bg-white border-2 border-black p-3 font-bold hover:bg-black hover:text-white transition-all shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 active:shadow-none active:translate-x-1 active:translate-y-1 duration-300 ease-in-out"
             target="_blank"
             rel="noopener noreferrer"
           >
@@ -91,7 +90,7 @@ export default function WorkCard({
           </a>
           <a
             href={links.demo}
-            className="flex-1 flex items-center justify-center gap-2 bg-[#ECEE81] border-2 border-black p-3 font-bold hover:brightness-95 transition-colors shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] active:translate-x-0.5 active:translate-y-0.5 active:shadow-none"
+            className="flex-1 flex items-center justify-center gap-2 bg-white border-2 border-black p-3 font-bold hover:bg-[#ECEE81] transition-all shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 active:shadow-none active:translate-x-1 active:translate-y-1 duration-300 ease-in-out"
             target="_blank"
             rel="noopener noreferrer"
           >

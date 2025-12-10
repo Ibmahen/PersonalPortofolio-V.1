@@ -1,16 +1,65 @@
 "use client";
 
 import ExpandableSection from "../ExpandSection";
-import { User, MapPin } from "lucide-react";
+import SkillCard, { SkillItemData } from "../SkillCard";
+import { User, Code2, Wrench } from "lucide-react";
+
+// Import Icons dari react-icons
+import {
+  SiJavascript,
+  SiTypescript,
+  SiPython,
+  SiPhp,
+  SiHtml5,
+  SiCss3,
+  SiNodedotjs,
+  SiExpress,
+  SiReact,
+  SiNextdotjs,
+  SiTailwindcss,
+  SiMysql,
+  SiPostgresql,
+  SiPrisma,
+  SiGit,
+  SiGithub,
+  SiPostman,
+  SiFigma,
+  SiVercel,
+} from "react-icons/si";
+
+import { FaJava } from "react-icons/fa";
 
 export default function About() {
+  // Data Tech Stack dengan Icon Spesifik
+  const techStack: SkillItemData[] = [
+    { name: "Node.js", icon: SiNodedotjs },
+    { name: "JavaScript", icon: SiJavascript },
+    { name: "TypeScript", icon: SiTypescript },
+    { name: "Python", icon: SiPython },
+    { name: "Java", icon: FaJava },
+    { name: "PHP", icon: SiPhp },
+    { name: "HTML", icon: SiHtml5 },
+    { name: "CSS", icon: SiCss3 },
+    { name: "Express.js", icon: SiExpress },
+    { name: "React", icon: SiReact },
+    { name: "Next.js", icon: SiNextdotjs },
+    { name: "Tailwind", icon: SiTailwindcss },
+    { name: "MySQL", icon: SiMysql },
+    { name: "PostgreSQL", icon: SiPostgresql },
+    { name: "Prisma", icon: SiPrisma },
+  ];
+
+  // Data Tools dengan Icon Spesifik
+  const tools: SkillItemData[] = [
+    { name: "Git", icon: SiGit },
+    { name: "GitHub", icon: SiGithub },
+    { name: "Postman", icon: SiPostman },
+    { name: "Figma", icon: SiFigma },
+    { name: "Vercel", icon: SiVercel },
+  ];
+
   return (
-    <ExpandableSection
-      title="About"
-      subtitle="More About Me"
-      bgColor="#6FE6FC" // Warna Biru Section
-    >
-      {/* Inner Container dengan Grid Pattern halus - FULL WIDTH */}
+    <ExpandableSection title="About" subtitle="More About Me" bgColor="#6FE6FC">
       <div
         className="w-full p-5 md:p-10"
         style={{
@@ -19,7 +68,9 @@ export default function About() {
           backgroundSize: "24px 24px",
         }}
       >
-        <div className="bg-white border-4 border-black p-6 md:p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] relative z-10">
+        {/* ... BIO CARD (Existing Code) ... */}
+        <div className="bg-white border-4 border-black p-6 md:p-8 shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] relative z-10 mb-12">
+          {/* ... isi bio ... */}
           <div className="flex items-center gap-3 mb-6 border-b-2 border-black pb-4">
             <div className="bg-[#82A0D8] p-2 border-2 border-black">
               <User size={24} strokeWidth={2.5} />
@@ -48,14 +99,23 @@ export default function About() {
               developer.
             </p>
           </div>
+        </div>
 
-          {/* Location Badge */}
-          <div className="mt-6 flex justify-end">
-            <div className="inline-flex items-center gap-2 px-4 py-2 bg-gray-100 border-2 border-black rounded-full text-sm font-bold">
-              <MapPin size={16} />
-              Based in Indonesia 🇮🇩
-            </div>
-          </div>
+        {/* TECH & TOOLS GRID */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <SkillCard
+            title="Tech Stack"
+            items={techStack}
+            headerColor="#FFD700" 
+            icon={Code2}
+          />
+
+          <SkillCard
+            title="Tools"
+            items={tools}
+            headerColor="#90EE90" 
+            icon={Wrench}
+          />
         </div>
       </div>
     </ExpandableSection>
