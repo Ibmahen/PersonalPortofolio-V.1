@@ -17,14 +17,14 @@ export default function Navbar() {
           <a
             href="/resume.pdf"
             download
-            className="inline-block font-bold text-base border-2 border-black bg-white px-3 py-1 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:bg-[#40E0D0] hover:text-white hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 transition-all duration-300 ease-in-out"
+            className="inline-block font-bold text-base border-2 border-black bg-white px-3 py-1 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:bg-[#40E0D0] hover:text-white hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 active:shadow-none active:translate-x-0.5 active:translate-y-0.5 active:bg-[#40E0D0] transition-all duration-300 ease-in-out"
           >
             Resume
           </a>
 
           <Link
             href="/certificate"
-            className="inline-block font-bold text-base border-2 border-black bg-white px-3 py-1 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:bg-[#40E0D0] hover:text-white hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 transition-all duration-300 ease-in-out"
+            className="inline-block font-bold text-base border-2 border-black bg-white px-3 py-1 shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:bg-[#40E0D0] hover:text-white hover:shadow-none hover:translate-x-0.5 hover:translate-y-0.5 active:shadow-none active:translate-x-0.5 active:translate-y-0.5 active:bg-[#40E0D0] transition-all duration-300 ease-in-out"
           >
             Certificate
           </Link>

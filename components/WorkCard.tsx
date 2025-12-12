@@ -6,7 +6,7 @@ interface WorkCardProps {
   desc: string;
   tags: string[];
   links: {
-    demo: string;
+    demo?: string;
     repo: string;
   };
   color: string;
@@ -78,25 +78,38 @@ export default function WorkCard({
           ))}
         </div>
 
-        {/* Action Buttons */}
-        <div className="flex gap-4 mt-auto">
-          <a
-            href={links.repo}
-            className="flex-1 flex items-center justify-center gap-2 bg-white border-2 border-black p-3 font-bold hover:bg-black hover:text-white transition-all shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 active:shadow-none active:translate-x-1 active:translate-y-1 duration-300 ease-in-out"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Github size={18} /> Code
-          </a>
-          <a
-            href={links.demo}
-            className="flex-1 flex items-center justify-center gap-2 bg-white border-2 border-black p-3 font-bold hover:bg-[#ECEE81] transition-all shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 active:shadow-none active:translate-x-1 active:translate-y-1 duration-300 ease-in-out"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <ExternalLink size={18} /> Live Demo
-          </a>
-        </div>
+        {/* Action Buttons - show demo only if provided */}
+        {links.demo ? (
+          <div className="flex gap-4 mt-auto">
+            <a
+              href={links.repo}
+              className="flex-1 flex items-center justify-center gap-2 bg-white border-2 border-black p-3 font-bold hover:bg-black hover:text-white transition-all shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 active:shadow-none active:translate-x-1 active:translate-y-1 duration-300 ease-in-out"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Github size={18} /> Code
+            </a>
+            <a
+              href={links.demo}
+              className="flex-1 flex items-center justify-center gap-2 bg-white border-2 border-black p-3 font-bold hover:bg-[#ECEE81] transition-all shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 active:shadow-none active:translate-x-1 active:translate-y-1 duration-300 ease-in-out"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <ExternalLink size={18} /> Live Demo
+            </a>
+          </div>
+        ) : (
+          <div className="mt-auto">
+            <a
+              href={links.repo}
+              className="w-full flex items-center justify-center gap-2 bg-white border-2 border-black p-3 font-bold hover:bg-black hover:text-white transition-all shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 active:shadow-none active:translate-x-1 active:translate-y-1 duration-300 ease-in-out"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Github size={18} /> Code
+            </a>
+          </div>
+        )}
       </div>
     </div>
   );

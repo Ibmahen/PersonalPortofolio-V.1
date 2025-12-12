@@ -2,30 +2,38 @@ import Navbar from "@/components/sections/ui/common/navbar";
 import Footer from "@/components/sections/ui/common/footer";
 
 import CertificateCard from "@/components/CertificateCard";
+import { image } from "framer-motion/client";
 
 export default function CertificatePage() {
   const certificates = [
     {
-      title: "AWS Certified Cloud Practitioner",
-      issuer: "Amazon Web Services",
-      date: "Dec 2023",
-      imageSrc: "/certificates/aws-ccp.png", // Pastikan gambar ada di folder public/certificates
-      credentialLink: "https://aws.amazon.com/verification",
-    },
-    {
-      title: "Full Stack Web Development",
+      title: "Belajar Dasar Pemrograman JavaScript",
       issuer: "Dicoding Indonesia",
-      date: "Aug 2023",
-      imageSrc: "/certificates/dicoding-web.png",
-      credentialLink: "#",
+      date: "Dec 2024",
+      imageSrc: "/certificates/image/javascript-dasar.png",
+      credentialLink: "/certificates/pdf/dasar-javascript.pdf",
     },
     {
-      title: "Backend Engineering Bootcamp",
-      issuer: "Binar Academy",
-      date: "Jan 2023",
-      imageSrc: "", // Contoh jika tidak ada gambar
-      credentialLink: "#",
+      title: "Belajar Back-End Pemula dengan JavaScript",
+      issuer: "Dicoding Indonesia",
+      date: "Dec 2024",
+      imageSrc: "/certificates/image/backend-dasar.png",
+      credentialLink: "/certificates/pdf/backend-dasar.pdf",
     },
+    {
+      title: "Seminar Accounting Routine Festival 2025",
+      issuer: "Binar Academy",
+      date: "Oct 2023",
+      imageSrc: "/certificates/image/coinvestasi1.png", 
+      credentialLink: "/certificates/pdf/seminar-accounting.pdf",
+    },
+    {
+      title: "Web3 University Tour Solo",
+      issuer: "Binance Academy, TokoCrypto, Coinvestasi",
+      date: "Oct 2025",
+      imageSrc: "/certificates/image/coinvestasi2.png",
+      credentialLink: "/certificates/pdf/web3-tour.pdf",
+    }
   ];
 
   return (
@@ -33,13 +41,10 @@ export default function CertificatePage() {
       <Navbar />
       <div className="container mx-auto px-5 py-12 md:py-20">
         {/* Header Section */}
-        <div className="mb-12 text-center">
+        <div className="p-1 mb-12 flex justify-center items-center text-center bg-white border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
           <h1 className="text-4xl md:text-6xl font-black uppercase mb-4 drop-shadow-[4px_4px_0px_rgba(0,0,0,1)] text-[#40E0D0]">
             Certificates
           </h1>
-          <p className="text-xl font-medium max-w-2xl mx-auto border-b-4 border-[#FFD700] inline-block pb-1">
-            My professional certifications and achievements.
-          </p>
         </div>
 
         {/* Grid Layout */}

@@ -13,17 +13,33 @@ export default function Work() {
         demo: "https://disney-clonee.vercel.app/",
         repo: "https://github.com/Ibmahen/disney-clone",
       },
-      color: "bg-[#40E0D0]", // Cyan accent
+      color: "bg-[#40E0D0]",
       imageSrc: "/projects/disney-clone.png",
     },
     {
-      title: "Social Media App",
-      desc: "Aplikasi sosial media real-time dengan fitur chat, notifikasi, dan berbagi media.",
-      tags: ["React", "Socket.io", "Node.js"],
-      links: { demo: "#", repo: "#" },
-      color: "bg-[#FF90E8]", // Pink accent
-      imageSrc: "",
+      title: "CRUD Product",
+      desc: "Aplikasi CRUD sederhana untuk manajemen produk.",
+      tags: ["Node.js", "Express.js", "MySQL"],
+      links: { demo: "", repo: "https://github.com/Ibmahen/CRUD-Product" },
+      color: "bg-[#FF90E8]",
+      imageSrc: "/projects/crud-product.png",
     },
+    {
+      title: "CRUD Book",
+      desc: "Aplikasi CRUD sederhana untuk manajemen buku dan kontrol akses pengguna.",
+      tags: ["PHP", "MySQL"],
+      links: { demo: "", repo: "https://github.com/Ibmahen/CRUD-Book" },
+      color: "bg-[#FF90E8]",
+      imageSrc: "/projects/crud-book.png",
+    },
+    {
+      title: "Website Portfolio",
+      desc: "Membuat website portfolio pribadi untuk menampilkan proyek dan keterampilan saya.",
+      tags: ["Next.js", "Tailwind CSS"],
+      links: { demo: "", repo: "#" },
+      color: "bg-[#FF90E8]",
+      imageSrc: "/projects/portofolio.png",
+    }
   ];
 
   return (

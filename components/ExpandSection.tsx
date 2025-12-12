@@ -21,21 +21,34 @@ export default function ExpandableSection({
   const [isExpanded, setIsExpanded] = useState(false);
   const [isHovered, setIsHovered] = useState(false);
 
-  // Logika: Warna aktif jika sedang di-Expand ATAU sedang di-Hover
+  // Warna aktif jika sedang di-Expand ATAU sedang di-Hover / Touch
   const isActive = isExpanded || isHovered;
 
-  // Handler untuk toggle expand (hanya jika belum expanded)
+  // Handler untuk toggle expand (hanya membuka, tutup lewat tombol Close)
   const handleHeaderClick = () => {
     if (!isExpanded) {
       setIsExpanded(true);
     }
   };
 
-  // Handler untuk close button
+  // Handler untuk close button — juga reset hover state
   const handleClose = (e: React.MouseEvent) => {
-    e.stopPropagation(); // Mencegah event bubbling ke parent
+    e.stopPropagation(); // mencegah bubbling ke header
     setIsExpanded(false);
+    setIsHovered(false); // penting: hilangkan hover agar bg/subtitle hilang juga di mobile
   };
+
+  // Touch handlers supaya ada efek saat ditekan di HP
+  const handleTouchStart = () => setIsHovered(true);
+  const handleTouchEnd = () => {
+    // jangan langsung set false supaya animasi klik -> expand terlihat
+    // jika belum expanded, kita biarkan isHovered sebentar agar animasi terasa
+    // jika sudah expanded, isActive tetap true karena isExpanded true
+    setTimeout(() => {
+      if (!isExpanded) setIsHovered(false);
+    }, 250);
+  };
+  const handleTouchCancel = () => setIsHovered(false);
 
   return (
     <div className={`w-full max-w-8-xl mx-auto ${className}`}>
@@ -47,6 +60,9 @@ export default function ExpandableSection({
         {/* Header Section */}
         <div
           onClick={handleHeaderClick}
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+          onTouchCancel={handleTouchCancel}
           className={`flex flex-wrap justify-between items-center px-4 py-2 border-y-2 border-black transition-colors duration-300 ease-in-out ${
             !isExpanded ? "cursor-pointer" : ""
           }`}
@@ -55,9 +71,10 @@ export default function ExpandableSection({
             backgroundColor: isActive ? bgColor : "transparent",
           }}
         >
-          <h1 className={`text-5xl font-bold m-2 md:text-6xl tracking-tighter uppercase z-10 transition-all duration-300 ease-in-out
-            ${isExpanded ? 'bg-white/70 backdrop-blur-sm border-black px-4 py-2 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]' : ''}
-          `}>
+          <h1
+            className={`text-5xl font-bold m-2 md:text-6xl tracking-tighter uppercase z-10 transition-all duration-300 ease-in-out
+            ${isExpanded ? "bg-white/70 backdrop-blur-sm border-black px-4 py-2 shadow-[6px_6px_0px_0px_rgba(0,0,0,1)]" : ""}`}
+          >
             {title}
           </h1>
 
@@ -67,12 +84,8 @@ export default function ExpandableSection({
               <span
                 className={`
                   border border-black px-4 py-1 text-sm md:text-base z-10 bg-white/50 backdrop-blur-sm shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]
-                  transition-all duration-500 ease-in-out transform
-                  ${
-                    isActive
-                      ? "opacity-100 translate-x-0"
-                      : "opacity-0 translate-x-4 pointer-events-none"
-                  }
+                  transition-all duration-300 ease-in-out transform
+                  ${isActive ? "opacity-100 translate-x-0 pointer-events-auto" : "opacity-0 translate-x-4 pointer-events-none"}
                 `}
               >
                 {subtitle}
@@ -83,7 +96,7 @@ export default function ExpandableSection({
             {isExpanded && (
               <button
                 onClick={handleClose}
-                className="flex items-center gap-2 bg-white border-2 border-black px-4 py-2 font-bold text-sm hover:bg-red-500 hover:text-white transition-all duration-300 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 active:shadow-none active:translate-x-1 active:translate-y-1"
+                className="flex items-center gap-2 bg-white border-2 border-black px-4 py-2 font-bold text-sm hover:bg-red-500 hover:text-white shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1 active:shadow-none active:translate-x-1 active:translate-y-1 active:bg-red-500 active:text-white transition-all duration-300 ease-in-out"
                 aria-label="Close section"
               >
                 <ArrowLeft size={18} />
