@@ -1,9 +1,23 @@
+"use client";
+
 import { Code, Terminal, Save } from "lucide-react";
 import Image from "next/image";
+import { useEffect, useRef } from "react";
+import { fadeIn } from "@/lib/animations/fadeIn";
 
 export default function Home() {
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!ref.current) return;
+    fadeIn(ref.current);
+  }, []);
+
   return (
-    <div className="min-h-screen w-full flex items-center justify-center pt-6 sm:pt-8 md:pt-12 lg:pt-16 pb-8 px-4 sm:px-6 md:px-8 lg:px-10">
+    <div
+      ref={ref}
+      className="opacity-0 min-h-screen w-full flex items-center justify-center pt-6 sm:pt-8 md:pt-12 lg:pt-16 pb-8 px-4 sm:px-6 md:px-8 lg:px-10"
+    >
       {/* Main Card Container */}
       <div
         className="w-full max-w-7xl mb-20 bg-white border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)] overflow-hidden relative flex flex-col justify-center"

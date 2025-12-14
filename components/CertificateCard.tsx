@@ -1,7 +1,7 @@
 "use client";
 
-import React from "react";
 import { Award, Calendar, ExternalLink } from "lucide-react";
+import Image from "next/image";
 
 interface CertificateCardProps {
   title: string;
@@ -29,14 +29,39 @@ export default function CertificateCard({
   const isPdf = /\.pdf$/i.test(href);
 
   return (
-    <a href={href} target="_blank" rel="noopener noreferrer" className="group block h-full">
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="group block h-full"
+    >
       <div className="bg-white border-4 border-black shadow-[8px_8px_0px_rgba(0,0,0,1)] transition-all duration-200 group-hover:shadow-none h-full flex flex-col">
         <div className="relative h-48 w-full border-b-4 border-black bg-gray-100 overflow-hidden">
           {imageSrc ? (
-            <img src={imageSrc} alt={title} className="w-full h-full object-cover" />
+            <Image
+              src={imageSrc}
+              alt={title}
+              fill
+              className="w-full h-full object-cover"
+            />
           ) : isPdf ? (
             <div className="w-full h-full flex items-center justify-center bg-[#ECEE81]">
-              <svg className="w-16 h-16 text-black opacity-20" viewBox="0 0 24 24" fill="none" stroke="currentColor"><path d="M12 2v7h7" strokeWidth="1.5"/><rect x="3" y="9" width="13" height="12" rx="2" strokeWidth="1.5"/></svg>
+              <svg
+                className="w-16 h-16 text-black opacity-20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+              >
+                <path d="M12 2v7h7" strokeWidth="1.5" />
+                <rect
+                  x="3"
+                  y="9"
+                  width="13"
+                  height="12"
+                  rx="2"
+                  strokeWidth="1.5"
+                />
+              </svg>
             </div>
           ) : (
             <div className="w-full h-full flex items-center justify-center bg-[#ECEE81]">
@@ -73,4 +98,4 @@ export default function CertificateCard({
       </div>
     </a>
   );
-} 
+}

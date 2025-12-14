@@ -7,7 +7,7 @@ export default function Work() {
   const projects = [
     {
       title: "Disney+ Clone",
-      desc: "Membuat tampilan disney+.",
+      desc: "A UI-focused web project that replicates the look and feel of the Disney+ streaming platform with a clean and responsive layout.",
       tags: ["React", "Tailwind"],
       links: {
         demo: "https://disney-clonee.vercel.app/",
@@ -18,7 +18,7 @@ export default function Work() {
     },
     {
       title: "CRUD Product",
-      desc: "Aplikasi CRUD sederhana untuk manajemen produk.",
+      desc: "A simple CRUD application for managing product data, focusing on basic data operations and structured application flow.",
       tags: ["Node.js", "Express.js", "MySQL"],
       links: { demo: "", repo: "https://github.com/Ibmahen/CRUD-Product" },
       color: "bg-[#FF90E8]",
@@ -26,7 +26,7 @@ export default function Work() {
     },
     {
       title: "CRUD Book",
-      desc: "Aplikasi CRUD sederhana untuk manajemen buku dan kontrol akses pengguna.",
+      desc: "A CRUD-based book management system with user access control, designed to handle data securely and efficiently.",
       tags: ["PHP", "MySQL"],
       links: { demo: "", repo: "https://github.com/Ibmahen/CRUD-Book" },
       color: "bg-[#FF90E8]",
@@ -34,12 +34,12 @@ export default function Work() {
     },
     {
       title: "Website Portfolio",
-      desc: "Membuat website portfolio pribadi untuk menampilkan proyek dan keterampilan saya.",
+      desc: "A personal portfolio website created to showcase my projects, skills, and professional background in a clear and structured way.",
       tags: ["Next.js", "Tailwind CSS"],
       links: { demo: "", repo: "#" },
       color: "bg-[#FF90E8]",
       imageSrc: "/projects/portofolio.png",
-    }
+    },
   ];
 
   return (

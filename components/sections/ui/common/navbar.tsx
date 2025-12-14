@@ -1,8 +1,22 @@
+"use client";
+
 import Link from "next/link";
+import { useEffect, useRef } from "react";
+import { fadeIn } from "@/lib/animations/fadeIn";
 
 export default function Navbar() {
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    if (!ref.current) return;
+    fadeIn(ref.current);
+  }, []);
+
   return (
-    <header className="top-0 left-0 w-full z-50 p-2 bg-[#FFD700] border-b-4 border-black">
+    <header
+      ref={ref}
+      className="opacity-0 top-0 left-0 w-full z-50 p-2 bg-[#FFD700] border-b-4 border-black"
+    >
       <div className="flex items-center justify-between px-4">
         <div className="p-2">
           <Link

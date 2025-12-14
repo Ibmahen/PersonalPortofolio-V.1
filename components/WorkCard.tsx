@@ -31,7 +31,7 @@ export default function WorkCard({
         <div className="w-3 h-3 rounded-full border-2 border-black bg-yellow-400" />
         <div className="w-3 h-3 rounded-full border-2 border-black bg-green-400" />
         <div className="ml-auto font-mono text-xs border border-black px-2 bg-white shadow-[2px_2px_0px_0px_rgba(0,0,0,0.2)]">
-          project_0{index + 1}.exe
+          project_0{index + 1}
         </div>
       </div>
 

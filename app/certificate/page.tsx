@@ -1,8 +1,4 @@
-import Navbar from "@/components/sections/ui/common/navbar";
-import Footer from "@/components/sections/ui/common/footer";
-
 import CertificateCard from "@/components/CertificateCard";
-import { image } from "framer-motion/client";
 
 export default function CertificatePage() {
   const certificates = [
@@ -21,24 +17,16 @@ export default function CertificatePage() {
       credentialLink: "/certificates/pdf/backend-dasar.pdf",
     },
     {
-      title: "Seminar Accounting Routine Festival 2025",
-      issuer: "Binar Academy",
-      date: "Oct 2023",
-      imageSrc: "/certificates/image/coinvestasi1.png", 
-      credentialLink: "/certificates/pdf/seminar-accounting.pdf",
-    },
-    {
       title: "Web3 University Tour Solo",
       issuer: "Binance Academy, TokoCrypto, Coinvestasi",
       date: "Oct 2025",
       imageSrc: "/certificates/image/coinvestasi2.png",
       credentialLink: "/certificates/pdf/web3-tour.pdf",
-    }
+    },
   ];
 
   return (
     <main className="min-h-screen bg-white">
-      <Navbar />
       <div className="container mx-auto px-5 py-12 md:py-20">
         {/* Header Section */}
         <div className="p-1 mb-12 flex justify-center items-center text-center bg-white border-4 border-black shadow-[8px_8px_0px_0px_rgba(0,0,0,1)]">
@@ -61,7 +49,6 @@ export default function CertificatePage() {
           ))}
         </div>
       </div>
-      <Footer />
     </main>
   );
 }
