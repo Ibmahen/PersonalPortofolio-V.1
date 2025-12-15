@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { ArrowLeft } from "lucide-react";
+import { resizeSmoothScroll } from "@/lib/animations/scrollAnimaton";
 
 interface ExpandableSectionProps {
   title: string;
@@ -28,6 +29,9 @@ export default function ExpandableSection({
   const handleHeaderClick = () => {
     if (!isExpanded) {
       setIsExpanded(true);
+      setTimeout(() => {
+        resizeSmoothScroll();
+      }, 300);
     }
   };
 
@@ -109,7 +113,7 @@ export default function ExpandableSection({
         {/* Content Section */}
         <div
           className={`overflow-hidden transition-all duration-700 ease-in-out ${
-            isExpanded ? "max-h-[2000px] opacity-100" : "max-h-0 opacity-0"
+            isExpanded ? "max-h-[3000px] opacity-100" : "max-h-0 opacity-0"
           }`}
         >
           <div
