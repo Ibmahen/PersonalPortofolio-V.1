@@ -43,8 +43,8 @@ export default function Work() {
       desc: "A personal portfolio website created to showcase my projects, skills, and professional background in a clear and structured way.",
       tags: ["Next.js", "Tailwind CSS"],
       links: {
-        demo: "",
-        repo: "#",
+        demo: "https://ibmahendra.vercel.app",
+        repo: "https://github.com/Ibmahen/PersonalPortofolio-V.1",
       },
       color: "bg-[#90EE90]",
       imageSrc: "/projects/portofolio.png",
